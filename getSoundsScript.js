@@ -51,31 +51,27 @@ fs.readFile(filePath, "utf8", (err, data) => {
       }
     );
 
-    // copyFiles(sourceDir, soundsDir, sounds);
+    copyFiles(sourceDir, soundsDir, sounds);
   } catch (parseErr) {
     console.error("Error parsing JSON:", parseErr);
   }
 });
 
 const formatString = (path) => {
-  // Split the path by '/' and filter out the empty parts
   const parts = path.split("/").filter((part) => part);
 
-  // Remove 'minecraft' and 'sounds' from the parts
   const filteredParts = parts.filter(
     (part) =>
       part.toLowerCase() !== "minecraft" && part.toLowerCase() !== "sounds"
   );
 
-  // Remove the file extension ('.ogg') from the last part
   const fileName = filteredParts.pop().replace(".ogg", "");
 
-  // Join all parts, replacing '_' with ' ', convert to uppercase, then replace spaces back to '_'
   const formattedName = filteredParts
-    .map((part) => part.toUpperCase()) // Convert each part to uppercase
-    .concat(fileName.replace(/_/g, " ")) // Add the file name part (with underscores replaced by spaces)
-    .join("_") // Join all parts with '_'
-    .toUpperCase(); // Ensure the final result is uppercase
+    .map((part) => part.toUpperCase())
+    .concat(fileName.replace(/_/g, " "))
+    .join("_") 
+    .toUpperCase(); 
 
   return formattedName;
 };
@@ -112,7 +108,6 @@ const copyFiles = (source, target, sounds) => {
             return;
 
           const targetPath = path.join(target, currentSound.name + ".ogg");
-          // Copy the file
           fs.copyFile(sourcePath, targetPath, (err) => {
             if (err) {
               console.error("Error copying file:", err);
