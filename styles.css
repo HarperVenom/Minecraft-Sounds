@@ -1,0 +1,77 @@
+body {
+  font-family: "Lato";
+  background-color: rgb(171, 171, 171);
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin-inline: auto;
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      h1 {
+        margin-bottom: 1rem;
+        font-weight: 800;
+      }
+
+      p {
+        margin: 0.5rem 0;
+        font-weight: 600;
+
+        &.hint {
+          margin: 2rem 0;
+          font-size: 1.2rem;
+          color: rgb(255, 238, 153);
+        }
+      }
+
+      a {
+        font-size: 1.2rem;
+        font-weight: 800;
+      }
+    }
+
+    #buttonsContainer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.2rem;
+
+      @media screen and (max-width: 800px) {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        font-family: "Lato";
+        font-weight: 600;
+        background-color: rgb(110, 106, 93);
+        color: white;
+        border-radius: 5px;
+        padding: 0.6em 2em;
+        cursor: pointer;
+        border: none;
+        width: fit-content;
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+
+        &.active {
+          background-color: rgb(145, 135, 103);
+        }
+
+        &:hover {
+          background-color: rgb(88, 85, 73);
+        }
+
+        &:active {
+          background-color: rgb(59, 56, 46);
+        }
+      }
+    }
+  }
+}
