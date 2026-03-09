@@ -1,0 +1,12 @@
+{
+  "name": "minecraft-sounds",
+  "version": "1.0.0",
+  "description": "A simple web app to play Minecraft sounds.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
